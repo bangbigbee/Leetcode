@@ -1,97 +1,95 @@
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
 </head>
+
 <body>
     <script>
-//define a class node
-class Node {
-    constructor(data)
-    {
-        this.data = data;
-        this.next = null; // next holds the pointer to the next node
-    }
-}
-class LinkedList {
-    constructor()
-    {
-        this.head = null;
-        this.size = 0;
-    }
-    add(data)
-{
-    //creates a new node
-    var node = new Node(data);
-    //to store current node
-    var current;
-    //if list is Empty add the node and make it head
-    if(this.head == null)
-    this.head=node;
-    else {
-    current = this.head;
-    
-    //iterate to the end of the list
-    while (current.next){
-        current = current.next;
-    }
-    //add node
-    current.next = node;
-    }
-    this.size++;
-}
-printList()
-{
-    var current = this.head;
-    var str = "";
-    while(current) {
-        str +=current.data + " ";
-        current = current.next;
-    }
-    console.log(str);
-}
-}
-//implement a add function
-// add a node at the end of the list
+        //define a class node
+        class Node {
+            constructor(data) {
+                this.data = data;
+                this.next = null; // next holds the pointer to the next node
+            }
+        }
+        class LinkedList {
+            constructor() {
+                this.head = null;
+                this.size = 0;
+            }
+            add(data) {
+                //creates a new node
+                var node = new Node(data);
+                //to store current node
+                var current;
+                //if list is Empty add the node and make it head
+                if (this.head == null)
+                    this.head = node;
+                else {
+                    current = this.head;
 
-var list1 = new LinkedList();
-var list2 = new LinkedList();
-var list3 = new LinkedList();
-list1.add(2);
-list1.add(3);
-list1.add(4);
-list1.printList();
-list2.add(5);
-list2.add(6);
-list2.add(7);
-list2.printList();
-let carry = 0;
-let previousNode = new Node();
-const headNode = previousNode;
-while(list1 || list2 || carry){
-    let val1 = 0;
-    let val2 = 0;
-    if (list1)
-    {
-        val1 = list1.data;
-        list1 = list1.next;
-    }
-    if(list2){
-        val2 = list2.data;
-        list2 = list2.next;
-    }
-    const sum = val1 + val2 + carry;
-    carry = sum > 9 ? 1:0;
-    const digit = sum % 10;
-    const currentNode = new Node(digit);
-    previousNode.next = currentNode;
-    previousNode = currentNode;
-}
-list3.next = headNode.next;
-list3.printList();
+                    //iterate to the end of the list
+                    while (current.next) {
+                        current = current.next;
+                    }
+                    //add node
+                    current.next = node;
+                }
+                this.size++;
+            }
+            printList() {
+                var current = this.head;
+                var str = "";
+                while (current) {
+                    str += current.data + " ";
+                    current = current.next;
+                }
+                console.log(str);
+            }
+        }
+        //implement a add function
+        // add a node at the end of the list
+
+        var list1 = new LinkedList();
+        var list2 = new LinkedList();
+        var list3 = new LinkedList();
+        list1.add(2);
+        list1.add(3);
+        list1.add(4);
+        list1.printList();
+        list2.add(5);
+        list2.add(6);
+        list2.add(7);
+        list2.printList();
+        let carry = 0;
+        let previousNode = new Node();
+        const headNode = previousNode;
+        while (list1 || list2 || carry) {
+            let val1 = 0;
+            let val2 = 0;
+            if (list1) {
+                val1 = list1.data;
+                list1 = list1.next;
+            }
+            if (list2) {
+                val2 = list2.data;
+                list2 = list2.next;
+            }
+            const sum = val1 + val2 + carry;
+            carry = sum > 9 ? 1 : 0;
+            const digit = sum % 10;
+            const currentNode = new Node(digit);
+            previousNode.next = currentNode;
+            previousNode = currentNode;
+        }
+        list3.next = headNode.next;
+        list3.printList();
 //return headNode.next;
     </script>
 </body>
+
 </html>
