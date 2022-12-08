@@ -1,0 +1,53 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ex1</title>
+</head>
+
+<body>
+    <script>
+        //using object
+        /*
+                const myObj = {};
+                const Array = [1, 2, 6, 8, 9, 10, 11, 15, 2, 5];
+                const target = 30;
+                let a = 0;
+                let b = 0;
+                for (let i = 0; i < Array.length; i++) {
+                    myObj[Array[i]] = i;
+                    if (myObj[target - Array[i]] !== undefined) {
+                        a = myObj[target - Array[i]];
+                        b = i;
+                        break;
+                    }
+                }
+                console.log("Two indices are " + a + ", " + b);
+                for (let x in myObj) {
+                    console.log(x + ": " + myObj[x]);
+                }
+        */
+        //using map
+        let myMap = new Map();
+        const Array = [1, 2, 6, 8, 9, 10, 11, 15, 2, 5];
+        const target = 14;
+        let firstIndex = 0;
+        let secondIndex = 0;
+        for (let i = 0; i < Array.length; i++) {
+            if (myMap.has(target - Array[i])) {
+                firstIndex = myMap.get(target - Array[i]);
+                secondIndex = i;
+                break;
+            }
+            else myMap.set(Array[i], i);
+        }
+        console.log("Two indices are " + firstIndex + ", " + secondIndex);
+        for (let [key, value] of myMap) {
+            console.log(key + ": " + value);
+        }
+    </script>
+</body>
+
+</html>
