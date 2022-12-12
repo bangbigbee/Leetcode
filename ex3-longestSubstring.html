@@ -1,0 +1,73 @@
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <script>
+        // //Longest substring without repeating character
+        // //input: a string s;
+        // //output: the length of the longest string without repeating characters
+        // function lengthOfLongestSubString(s) {
+        //     let str = "";
+        //     const tempMap = new Map();
+        //     let j = 0;
+        //     for (let i of s) {
+
+        //         if (!tempMap.has(i, j)) {
+        //             tempMap.set(i, j);
+        //             j++;
+        //             str += i;
+        //         }
+        //     }
+        //     if (s == "")
+        //         console.log('string is empty');
+        //     console.log('Your longest substring is: ' + str);
+        //     return tempMap.size;
+        // }
+        // console.log(lengthOfLongestSubString("    "));
+
+
+        function checkUnique(str) {
+            const myMap = new Map();
+            let valueCount = 0;
+            for (let x of str) {
+                if (myMap.has(x, valueCount)) {
+                    return false;
+                }
+                else {
+                    myMap.set(x, valueCount);
+                    valueCount++;
+                }
+            }
+            return true;
+        }
+        function getKeyByValue(myMap, serchValue) {
+            for (let [key, value] of myMap.entries) {
+                if (value == searchValue) return key;
+            }
+        }
+        function lengthOfLongestSubString(s) {
+            let part = "";
+            let max = 0;
+            for (let i = 0; i <= s.length; i++)
+                for (let j = i + 1; j <= s.length; j++) {
+                    part = s.substring(i, j);
+                    if (checkUnique(part)) {
+                        console.log(part);
+                        if (part.length > max) max = part.length;
+                    }
+
+                }
+            console.log('The length of longest substring: ' + max);
+            console.log('That longest substring is: ' + getKeyByValue(myMap, max));
+        }
+        lengthOfLongestSubString("abababcdaaaaabvdsgfsswwgasdqweyurehsdf");
+    </script>
+</body>
+
+</html>
